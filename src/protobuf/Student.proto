@@ -1,0 +1,40 @@
+syntax = "proto2";
+
+package com.protobuf.test;
+
+option optimize_for = SPEED;
+option java_package = "protobuftest";
+option java_outer_classname = "DataInfo";
+
+message MyMessage {
+    enum DataType{
+        StudentType = 1;
+        DogType = 2;
+        CatType = 3;
+    }
+    required DataType data_type = 1;
+
+    oneof DataBody {
+        Student student = 2;
+        Dog dog = 3;
+        Cat cat = 4;
+    }
+}
+
+message Student {
+    required string name = 1;
+    optional int32 age = 2;
+    optional string address = 3;
+}
+
+message Dog {
+    required string name = 1;
+    optional int32 age = 2;
+    optional string address = 3;
+}
+
+message Cat {
+    required string name = 1;
+    optional int32 age = 2;
+    optional string address = 3;
+}
